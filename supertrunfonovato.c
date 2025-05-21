@@ -62,8 +62,8 @@ int main() {
 
     char nomestado2[1];
         printf("primeiro, insira o nome do estado, sendo uma letra de 'A' a 'H', ok?\n");
-        scanf("%s", nomestado);
-        printf("o estado escolhido foi: %s\n", nomestado);
+        scanf("%s", nomestado2);
+        printf("o estado escolhido foi: %s\n", nomestado2);
     // primeiro, solicitamos o nome do estado, que deve ser uma letra de 'A' a 'H', e armazenamos na variável nomestado.
     // depois, imprimimos o estado escolhido na tela.
     // eu vou ter que fazer isso de novo?
