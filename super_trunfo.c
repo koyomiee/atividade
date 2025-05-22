@@ -122,10 +122,15 @@ int main() {
     // depois, imprimo o número de pontos turísticos escolhidos na tela.
     // que meus pecados sejam perdoados, mas a IA escreveu todos esses comentários da segunda parte, porque eu só quero sair pra caminhar, e não ficar escrevendo comentários.
     // inclusive isso foi ela também.
-
-        //aqui eu calculo a razão de pib per capita e densidade populacional
+    
     float calculodensidade2 = qntdpopulacao2 / tamanhoarea2;
     float calculopib2 = algarismopib2 / qntdpopulacao2;
+
+    //agora vou começar a calcular o superpoder. 
+    //tentei descer as equações de densidade e tal, mas deu erro de memória
+
+    float quocientesuperpoder = qntdpopulacao + tamanhoarea + algarismopib + numeropontosturismo + calculopib + (1 / calculodensidade);
+    float quocientesuperpoder2 = qntdpopulacao2 + tamanhoarea2 + algarismopib2 + numeropontosturismo2 + calculopib2 + (1 / calculodensidade2);
 
     //aqui eu to imprimindo os dados da carta 1 e da carta 2, pra ver se ta tudo certo :D
         printf("agora, vamos ver suas atribuições!\n");
@@ -151,13 +156,65 @@ int main() {
         printf("O PIB per capita é: %f\n", calculopib2);
         printf("Número de pontos turísticos: %i\n", numeropontosturismo2);
         printf("\n");
-        //aqui eu imprimo o superpoder de cada carta, depois dos atributos. partindo para comparar-lós   
+        //aqui eu imprimo o superpoder de cada carta, depois dos atributos. partindo para comparar-lós
+        printf("O super poder da carta um é: %f pontos\n", quocientesuperpoder);
+        printf("O super poder da carta dois é: %f pontos\n", quocientesuperpoder2);
+        //essa linha foi provavelmente a única que funcionou direito
+    bool populacaowin = qntdpopulacao > qntdpopulacao2;
+    bool areawin = tamanhoarea > tamanhoarea2;
+    bool pibwin = algarismopib > algarismopib2;
+    bool turismowin = numeropontosturismo > numeropontosturismo2;
+    bool percapitawin = calculopib > calculopib2;
+    bool densidadewin = calculodensidade2 > calculodensidade;
+    bool superpoderwin = quocientesuperpoder > quocientesuperpoder2;
+    //bool, bool, bool! não sei se tem como escrever isso melhor, mas achei que faria sentido pedir um valor pra cada comparação
+
+    if (populacaowin){
+        printf("\nCarta 1 venceu em população!\n");
+    } else {
+        printf("\nCarta 2 venceu em população!\n");
+    }
+
+    if (areawin){
+        printf("\nCarta 1 venceu em tamanho!\n");
+    } else {
+        printf("\nCarta 2 venceu em tamanho!\n");
+    }
+
+    if (pibwin){
+        printf("\nCarta 1 venceu em PIB!\n");
+    } else {
+        printf("\nCarta 2 venceu em PIB!\n");
+    }
         
+    if (turismowin){
+        printf("\nCarta 1 venceu em número de pontos turísticos!\n");
+    } else {
+        printf("\nCarta 2 venceu em número de pontos turísticos!\n");
+    }
+
+    if (percapitawin){
+        printf("\nCarta 1 venceu em PIB per capita!\n");
+    } else {
+        printf("\nCarta 2 venceu em PIB per capita!\n");
+    }
+
+    if (densidadewin){
+        printf("\nCarta 1 venceu em densidade populacional!\n");
+    } else {
+        printf("\nCarta 2 venceu em densidade populacional!\n");
+    }
+
+    if (superpoderwin){
+        printf("\nCarta 1 venceu em pontos de SuperPoder!\n");
+    } else {
+        printf("\nCarta 2 venceu em pontos de SuperPoder\n");
+    }
+    //if else é repetitivo assim mesmo, professor?
+
     return 0;
 
 }
 
 // escrito e testado no windows 11 Insider Preview (10.0.26120.4151)
-//esse arquivo tá ligeiramente diferente, porque eu perdi o arquivo do nível médio, basicamente
-//eu nao sabia usar o git, então dei commit do avançado (ou mestre) em cima do médio (aventureiro)
-//não soube como recuperar, então peguei o avançado e tirei as funções dele. 
+// era, a uns 3 dias atrás, agora tá uma mistura disso com linux (não sei a versão. qualquer que seja a versão do codespace)
