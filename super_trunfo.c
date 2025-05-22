@@ -134,3 +134,4 @@ int main() {
     
 }
 
+// escrito e testado no windows 11 Insider Preview (10.0.26120.4151)
