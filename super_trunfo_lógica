@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+        printf("bem vindo ao super trunfo!\n");
+
+    char nomestado[2] = "A";
+    char codcarta[4] = "A01";
+    char nomecidade[50] = "Rio de Janeiro";
+    int qntdpopulacao = 12325000;
+    float tamanhoarea = 1521.11;
+    float calculodensidade = qntdpopulacao / tamanhoarea; 
+    float algarismopib = 699.28;
+    float calculopib = algarismopib / qntdpopulacao;
+    int numeropontosturismo = 50;
+    
+
+    //carta 2
+
+    char nomestado2[2] = "B";
+    char codcarta2[4] = "B02";
+    char nomecidade2[50] = "Sao Paulo";
+    int qntdpopulacao2 = 6748000;
+    float tamanhoarea2 = 1200.25;
+      float calculodensidade2 = qntdpopulacao2 / tamanhoarea2;
+    float algarismopib2 = 300.50;
+        float calculopib2 = algarismopib2 / qntdpopulacao2;
+    int numeropontosturismo2 = 30;
+    
+    printf("Carta 1:\n");
+        printf("Letra do estado: %s\n", nomestado);
+        printf("Código da carta: %s\n", codcarta);
+        printf("Nome da cidade: %s\n", nomecidade);
+        printf("População: %i\n", qntdpopulacao);
+        printf("Tamanho da área: %f km²\n", tamanhoarea);
+        printf("A densidade populacional é de %f por km² \n", calculodensidade);
+        printf("PIB: %f bilhões de reais\n", algarismopib);
+        printf("O PIB per capita é: %f\n", calculopib);
+        printf("Número de pontos turísticos: %i\n", numeropontosturismo);
+        printf("\n");
+        printf("Carta 2:\n");
+        printf("Letra do estado: %c\n", nomestado2);
+        printf("Código da carta: %s\n", codcarta2); 
+        printf("Nome da cidade: %s\n", nomecidade2);
+        printf("População: %i\n", qntdpopulacao2);
+        printf("Tamanho da área: %f km²\n", tamanhoarea2);
+        printf("A densidade populacional é de %f por km² \n", calculodensidade2);
+        printf("PIB: %f bilhões de reais\n", algarismopib2);
+        printf("O PIB per capita é: %f\n", calculopib2);
+        printf("Número de pontos turísticos: %i\n", numeropontosturismo2);
+        printf("\n");
+  
+
+    bool populacaowin = qntdpopulacao > qntdpopulacao2;
+    bool areawin = tamanhoarea > tamanhoarea2;
+    bool pibwin = algarismopib > algarismopib2;
+    bool turismowin = numeropontosturismo > numeropontosturismo2;
+    bool percapitawin = calculopib > calculopib2;
+    bool densidadewin = calculodensidade2 > calculodensidade;
+    
+    printf("Carta 1 - %s: %i \n", nomecidade, qntdpopulacao);
+    printf("Carta 2 - %s: %i \n", nomecidade2, qntdpopulacao2);
+
+    if (percapitawin){
+        printf("\nResultdo: Carta 1 (%s) venceu em PIB per capita!\n", nomecidade);
+    } else {
+        printf("\nResultado: Carta 2 (%s) venceu em PIB per capita!\n", nomecidade2);
+    }
+
+    return 0;
+
+}
