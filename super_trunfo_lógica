@@ -6,16 +6,20 @@ int main() {
 
     int opcaoinicio;
 
-    printf("bem vindo! digite um número para escolher como prosseguir\n");
+do { //lacei tudo num loop, pra não precisar reiniciar o programa toda vez que eu quisesse jogar. sim, o copilot ajudou
+    //e nada na atividade me proíbe de usar dowhile...
+    printf("\nbem vindo! digite um número para escolher como prosseguir\n");
     printf("1. iniciar o jogo\n");
     printf("2. ver as regras\n");
     printf("3. sair\n");
     scanf("%d", &opcaoinicio);
-
+    //scolha sua opcao de inicio
     switch (opcaoinicio)
     {
     case 1:
         printf("iniciando...\n");
+        //vou permitir que o usuário escolha entre com duas cartas, usando o código velho e triste dos exercícios anteriores
+        //descanse em paz cartas pré definidas
     char nomestado[3] = "A";
     char codcarta[4] = "A01";
     char nomecidade[50] = "Rio de Janeiro";
@@ -26,7 +30,7 @@ int main() {
     float calculopib = algarismopib / qntdpopulacao;
     int numeropontosturismo = 50;
     //dados das cartas (pré selecionados pra eu não ter que digitar toda vez, mudarei depois)
-
+        //alterado na versão 2.3, vou testar com as pré definidas, mas depois vou fazer com que o usuário escolha os atributos
     //carta 2
 
     char nomestado2[3] = "B";
@@ -41,10 +45,7 @@ int main() {
     //coloquei os atributos pré preenchidos pq digitar TODA vez para testar fica cansativo. acho que vou adicionar 2 branchs. 
     //no exercício aninhado, isso vai ser determinado pelo user. (expectativa)
 
-    //calculo de superpoder 
-    float quocientesuperpoder = qntdpopulacao + tamanhoarea + algarismopib + numeropontosturismo + calculopib + (1 / calculodensidade);
-    float quocientesuperpoder2 = qntdpopulacao2 + tamanhoarea2 + algarismopib2 + numeropontosturismo2 + calculopib2 + (1 / calculodensidade2);
-
+    //aqui jaz, ou jazia, o calculo de superpoder, que eu não uso faz uns 3 exercícios. já posso trabalhar na microsoft
  
     printf("Carta 1:\n");
         printf("Letra do estado: %s\n", nomestado);
@@ -70,107 +71,200 @@ int main() {
         printf("\n");
         //apresentação final de todos os atributos antes da zurucutaia
 
-    bool populacaowin = qntdpopulacao > qntdpopulacao2;
-    bool areawin = tamanhoarea > tamanhoarea2;
-    bool pibwin = algarismopib > algarismopib2;
-    bool turismowin = numeropontosturismo > numeropontosturismo2;
-    bool percapitawin = calculopib > calculopib2;
-    bool densidadewin = calculodensidade < calculodensidade2;
-    bool superpoderwin = quocientesuperpoder > quocientesuperpoder2;
-        //valores booleanos para comparar as cartinhas :p
+    //jaziam (isso é um verbo?) os booleanos e uma tentativa falha de fazer os atributos sumirem após serem escolhidos
     
-
-        int opcao_comparacao;
-            printf("por favor, selecione o atributo que quer comparar.\n");
-            printf("1. população\n");
-            printf("2. área\n");
-            printf("3. PIB\n");
-            printf("4. número de pontos turísticos\n");
-            printf("5. densidade demográfica\n");
-            scanf("%d", &opcao_comparacao);
-            //pequeno int para... bom, para salvar a variável que eu vou usar no switch.
-             switch (opcao_comparacao)
-            {
-            case 1:
-            printf("comparando população...\n");
-                if (qntdpopulacao > qntdpopulacao2){
-                    printf("A carta %s venceu com uma população de %i pessoas!\n", nomecidade, qntdpopulacao);
-                    printf("A carta %s perdeu com %i pessoas.\n", nomecidade2, qntdpopulacao2);
-                } else if (qntdpopulacao < qntdpopulacao2){
-                    printf("A carta %s venceu com uma população de %i pessoas!\n", nomecidade2, qntdpopulacao2);
-                    printf("A carta %s perdeu com %i pessoas.\n", nomecidade, qntdpopulacao);
-                } else {
-                    printf("Empate!\n");
-                }
-             break;
-            case 2:
-            printf("comparando área...\n");
-                if(tamanhoarea > tamanhoarea2){
-                    printf("A carta %s venceu com um tamanho de %f km²!\n", nomecidade, tamanhoarea);
-                    printf("A carta %s perdeu com %f km².\n", nomecidade2, tamanhoarea2);
-                } else if (tamanhoarea2 > tamanhoarea){
-                    printf("A carta %s venceu com um tamanho de %f km²!\n", nomecidade2, tamanhoarea2);
-                    printf("A carta %s perdeu com %f km².\n", nomecidade, tamanhoarea);
-                } else {
-                    printf("Empate!");
-                }
-            break;
-            case 3:
-            printf("comparando PIB...\n");
-                if(algarismopib > algarismopib2){
-                    printf("A carta %s venceu com um PIB de %f bilhões de reais!\n", nomecidade, algarismopib);
-                    printf("A carta %s perdeu com %f bilhões de reais.\n", nomecidade2, algarismopib2);
-                } else if(algarismopib < algarismopib2){
-                    printf("A carta %s venceu com um PIB de %f bilhões de reais!\n", nomecidade2, algarismopib2);
-                    printf("A carta %s perdeu com %f bilhões de reais.\n", nomecidade, algarismopib);
-                } else {
-                    printf("Empate!");
-                }
-                //a ideia é imprimir os números inseridos anteriormente, tentando atingir os requisitos do programa com meu toque especial
-                //(autismo)
-            break;
-            case 4:
-            printf("comparando número de pontos turísticos...\n");
-                if(numeropontosturismo > numeropontosturismo2){
-                    printf("A carta %s venceu com um número de %i pontos turísticos!\n", nomecidade, numeropontosturismo);
-                    printf("A carta %s perdeu com %i pontos turísticos.\n", nomecidade2, numeropontosturismo2);
-                } else if (numeropontosturismo < numeropontosturismo2){
-                    printf("A carta %s venceu com um número de %i pontos turísticos!\n", nomecidade2, numeropontosturismo2);
-                    printf("A carta %s perdeu com %i pontos turísticos.\n", nomecidade, numeropontosturismo);
-                } else {
-                    printf("Empate!");
-                }
-            break;
-            case 5:
-            printf("comparando densidade populacional...\n");
-                if(calculodensidade < calculodensidade2){
-                    printf("A carta %s venceu com uma população de %f pessoas por km²!\n", nomecidade, calculodensidade);
-                    printf("A carta %s perdeu com %f pessoas por km².\n", nomecidade2, calculodensidade2);
-                } else if (calculodensidade > calculodensidade2){
-                    printf("A carta %s venceu com uma população de %f pessoas por km²!\n", nomecidade2, calculodensidade2);
-                    printf("A carta %s perdeu com %f pessoas por km².\n", nomecidade, calculodensidade);
-                } else {
-                    printf("Empate!\n"); //cara, a lógica disso fritou meu cérebro, e eu nem sei se acertei
-                }
-            break;
-            //cada um desses corresponde a um pedido de comparação alternativo, com textos de perda e vitória para as duas possibilidades
+    //solução inspirada no copilot (eu tô surtando, não me julguem)
+    int primeiro_atributo = 0;
+    int segundo_atributo = 0;
+    float soma_carta1 = 0;
+    float soma_carta2 = 0;
+    //fiquei me perguntando como faria, após o almoço, pensei em atribuir uma variável pra cada atributo
+    //mas não sabia que os valores seriam 0, não consigo botar minha cabeça em tudo de uma vez
+do {
+    printf("\n=== Escolha o primeiro atributo para comparar ===\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n"); 
+    printf("4. Pontos turísticos\n");
+    printf("5. Densidade populacional\n");
+    printf("6. PIB per capita\n");
+    //ESCOLHE PARÇA 
+    scanf("%d", &primeiro_atributo);
+    
+    printf("\n=== escolha o segundo atributo para comparar ===\n");
+    if (primeiro_atributo != 1) printf("1. População\n"); //até na indentação, ele botou o print ao lado, não embaixo.
+    if (primeiro_atributo != 2) printf("2. Área\n");//bem legível
+    if (primeiro_atributo != 3) printf("3. PIB\n");
+    if (primeiro_atributo != 4) printf("4. Pontos turísticos\n");
+    if (primeiro_atributo != 5) printf("5. Densidade populacional\n");
+    if (primeiro_atributo != 6) printf("6. PIB per capita\n");
+    
+    scanf("%d", &segundo_atributo);
+    //ahhhh o copliot separou o primeiro e segundo atributo, essa foi ligeira
+    //verifica se o usuário escolheu o mesmo atributo, se sim, pede para escolher novamente
+    if (primeiro_atributo == segundo_atributo) {
+        printf("por favor, insira um atributo diferente do primeiro.\n");
+        continue;
+    }
+    
+    //aqui comparamos o primeiro entre as duas cartas
+    printf("\n=== comparando primeiro atributo ===\n");
+    switch(primeiro_atributo) {
+        case 1: //população
+            if (qntdpopulacao > qntdpopulacao2) {
+                printf("A carta %s venceu com uma população de %i pessoas!\n", nomecidade);
+                soma_carta1 += qntdpopulacao;
+                soma_carta2 += qntdpopulacao2;
+            } else {
+                printf("A carta %s venceu com uma população de %i pessoas!\n", nomecidade2);
+                soma_carta1 += qntdpopulacao;
+                soma_carta2 += qntdpopulacao2;
             }
+            break;
+        case 2: //área
+            if (tamanhoarea > tamanhoarea2) {
+                printf("%s vence em área com tamanho de %f!\n", nomecidade, tamanhoarea);
+                soma_carta1 += tamanhoarea;
+                soma_carta2 += tamanhoarea2;
+            } else {
+                printf("%s vence em área com tamanho de %f!\n", nomecidade2, tamanhoarea2);
+                soma_carta1 += tamanhoarea;
+                soma_carta2 += tamanhoarea2;
+            }
+            break;
+        case 3: //PIB
+            if (algarismopib > algarismopib2) {
+                printf("%s vence com um PIB de %.2f bilhões de reais!\n", nomecidade, algarismopib);
+                soma_carta1 += algarismopib;
+                soma_carta2 += algarismopib2;
+            } else {
+                printf("%s vence com um PIB de %.2f bilhões de reais!\n", nomecidade2, algarismopib2);
+                soma_carta1 += algarismopib;
+                soma_carta2 += algarismopib2;
+            }
+            break;
+        case 4: //pontos turísticos
+            if (numeropontosturismo > numeropontosturismo2) {
+                printf("%s vence com %i pontos turísticos!\n", nomecidade, numeropontosturismo);
+                soma_carta1 += numeropontosturismo;
+                soma_carta2 += numeropontosturismo2;
+            } else {
+                printf("%s vence com %i pontos turísticos!\n", nomecidade2, numeropontosturismo2);
+                soma_carta1 += numeropontosturismo;
+                soma_carta2 += numeropontosturismo2;
+            }
+            break;
+        case 5: //densidade populacional
+            if (calculodensidade < calculodensidade2) {
+                printf("%s vence com uma densidade de %.2f pessoas por km²!\n", nomecidade, calculodensidade);
+                soma_carta1 += calculodensidade;
+                soma_carta2 += calculodensidade2;
+            } else {
+                printf("%s vence com uma densidade de %.2f pessoas por km²!\n", nomecidade2, calculodensidade2);
+                soma_carta1 += calculodensidade;
+                soma_carta2 += calculodensidade2;
+            }
+            break;
+        case 6: //PIB per capita
+            if (calculopib > calculopib2) {
+                printf("%s vence com um PIB per capita de %.2f!\n", nomecidade, calculopib);
+                soma_carta1 += calculopib;
+                soma_carta2 += calculopib2;
+            } else {
+                printf("%s vence com um PIB per capita de %.2f!\n", nomecidade2, calculopib2);
+                soma_carta1 += calculopib;
+                soma_carta2 += calculopib2;
+            }
+            break;
+        default:
+            printf("atributo inválido.\n");
+            continue;
+    } //botar comentários em cada case, explicando o que trata é muito bom, queria ter pensado nisso antes
+    
+    //compara segundo atributo
+    printf("\n=== comparando segundo atributo ===\n");
+    switch(segundo_atributo) {
+        case 1: //população
+            if (qntdpopulacao > qntdpopulacao2) {
+                printf("A carta %s venceu com uma população de %i pessoas!\n", nomecidade);
+            } else {
+                printf("A carta %s venceu com uma população de %i pessoas!\n", nomecidade2);
+            }
+            break;
+        case 2: //área
+            if (tamanhoarea > tamanhoarea2) {
+                printf("%s vence em área com tamanho de %f!\n", nomecidade, tamanhoarea);
+            } else {
+                printf("%s vence em área com tamanho de %f!\n", nomecidade2, tamanhoarea2);
+            }
+            break;
+        case 3: //PIB
+            if (algarismopib > algarismopib2) {
+                printf("%s vence com um PIB de %.2f bilhões de reais!\n", nomecidade, algarismopib);
+            } else {
+                printf("%s vence com um PIB de %.2f bilhões de reais!\n", nomecidade2, algarismopib2);
+            }
+            break;
+        case 4: //pontos turísticos
+            if (numeropontosturismo > numeropontosturismo2) {
+                printf("%s vence com %i pontos turísticos!\n", nomecidade, numeropontosturismo);
+            } else {
+                printf("%s vence com %i pontos turísticos!\n", nomecidade2, numeropontosturismo2);
+            }
+            break;
+        case 5: //densidade populacional
+            if (calculodensidade < calculodensidade2) {
+                printf("%s vence com uma densidade de %.2f pessoas por km²!\n", nomecidade, calculodensidade);
+            } else {
+                printf("%s vence com uma densidade de %.2f pessoas por km²!\n", nomecidade2, calculodensidade2);
+            }
+            break;
+        case 6: //PIB per capita
+            if (calculopib > calculopib2) {
+                printf("%s vence com um PIB per capita de %.2f!\n", nomecidade, calculopib);
+            } else {
+                printf("%s vence com um PIB per capita de %.2f!\n", nomecidade2, calculopib2);
+            }
+            break; //copiei do primeiro switch, mas removi o soma_carta1 e soma_carta2
+    
+    //Determina o vencedor final
+    printf("\n=== !resultado final! ===\n");
+    if (soma_carta1 > soma_carta2) {
+        printf("%s vence a rodada com soma total de %.2f!\n", nomecidade, soma_carta1);
+        printf("%s perde com soma total de %.2f\n", nomecidade2, soma_carta2);
+    } else if (soma_carta2 > soma_carta1) {
+        printf("%s vence a rodada com soma total de %.2f!\n", nomecidade2, soma_carta2);
+        printf("%s perde com soma total de %.2f\n", nomecidade, soma_carta1);
+    } else {
+        printf("Empate! Ambas as cartas somaram %.2f\n", soma_carta1);
+    }
+    //vv ideia do copilot esse menuzinho ai ó vv
+    printf("\nDeseja jogar novamente? (1 para sim, 0 para não)\n");
+    int continuar;
+    scanf("%d", &continuar);
+    if (!continuar) break; //nunca tinha usado o operador lógico de negação, eu provalvelmente tentaria dividir por 1, igual a densidade.
+    
+} while (1);
+        
         break;
 
     case 2:
-        printf("as regras são:\n");
+        printf("\n===as regras são:===\n");
         printf("1. você irá inserir os dados de dois países\n");
-        printf("2. com esses dados, você pode escolher qual deles será comparado\n");
-        printf("3. vencerá quem tiver o maior atributo, com excessão da densidade; o menor ganha nesse caso.\n");
+        printf("2. com esses dados, você pode escolher quais deles será comparado\n");
+        printf("3. vencerá quem tiver a maior soma dos dois atributos, com excessão da densidade; o menor ganha nesse caso.\n");
         break;
+        //regrinhas, eu não revisei elas, são péssimas regras.
     case 3:
-        printf("saindo...");
+        printf("saindo...\n");
         exit(0);
         break;
+        //esse exit foi ideia minha, ficou bom? hein? hein?
     default:
         printf("opção inválida :/, digite de 1 a 3\n");
         break;
     }
+} while (opcaoinicio != 3);
 
     return 0;
 
