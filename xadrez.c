@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//iniciante
 int main() {
     //esses ints serão usados para dizer quantas casas a peça tem que mover.
     //são usadas para serem comparadas com os contadores, atingindo o int, o contador para.
