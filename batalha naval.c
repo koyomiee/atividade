@@ -26,7 +26,7 @@ int main() {
         for(int j = 0; j < 10; j++){
             printf("%d ", tabuleiro[i][j]); //imprimindo o tabulero inteiro, ele vai imprimir 0 para espaços vazios e 3 para os navios
         }
-        printf("\n");
+        printf("\n");//antes de tudo, é determinado que os navios ocupem as posições deles, assim, o resto é impresso 0
     }
     return 0;
 }
