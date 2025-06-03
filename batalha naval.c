@@ -1,5 +1,5 @@
 #include <stdio.h>
-// medio
+// avançado
 
 int main() {
     int tabuleiro[10][10] = {0}; 
@@ -8,6 +8,54 @@ int main() {
     int navio_2[3] = {3, 3, 3};
     int navio_3[3] = {3, 3, 3}; //navio diagonal
     int navio_4[3] = {3, 3, 3}; //navio diagonal
+    //habilidades
+    int cone[5][5] = {
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0},
+        {1, 1, 1, 1, 1},
+        {0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0}
+    };
+
+     int cruz[5][5] = {
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {1, 1, 1, 1, 1},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0}
+    };
+
+    int octaedro[5][5] = {
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0},
+        {1, 1, 1, 1, 1},
+        {0, 1, 1, 1, 0},
+        {0, 0, 1, 0, 0}
+    };
+    //habilidades
+
+    int aplicar_habilidade(int origem_x, int origem_y, int habilidade[5][5]) {
+        int inicio_x = origem_x - 5/2; //calcula o ponto de origem para aplicar a habilidade
+        int inicio_y = origem_y - 5/2; //pq 5/2 e não colocar 2.5 direto? deve dar bom nn
+        //aplicação da habilidade
+        for(int i = 0; i < 5; i++) {
+            for(int j = 0; j < 5; j++) {//jota vale zero, e será adicionado 1 até que chege a 5
+                int pos_x = inicio_x + i;//calcula a posição x e y
+                int pos_y = inicio_y + j;//posições essas representadas pelo inicio (da onde vem a habilidade) + i e j (número de passos do loop for)
+                if(pos_x >= 0 && pos_x < 10 && pos_y >= 0 && pos_y < 10) { //verifica se a posição está dentro dos limites do tabuleiro
+                    if(habilidade[i][j] == 1) { //caso a habilidade seja aplicada
+                        tabuleiro[pos_x][pos_y] = 5; //marca a posição como atingida
+                    }
+                }
+            }
+        }
+    }
+
+    //*EXPLOSÃO*
+    aplicar_habilidade(2, 2, cone); //aplica a habilidade cone na posição 2x2
+    aplicar_habilidade(5, 5, cruz); //aplica a habilidade cruz na posição 5x5
+    aplicar_habilidade(8, 8, octaedro); //aplica a habilidade octaedro na posição 8x8
+    //*EXPLOSÃO*
 
     //navio 1 (horizontal)
     for (int i = 0; i < 3; i++){//adicionarei mais 1 a i até que seja 3 uuuUuuUUU
@@ -30,6 +78,7 @@ int main() {
      for (int i = 0; i < 3; i++){
         tabuleiro[2 + i][5 - i] = navio_4[i];
     }
+    
     printf("\n===Tabuleiro de Batalha Naval===\n");
     printf("   ");
     for (int i = 0; i < 10; i++) {
@@ -40,9 +89,21 @@ int main() {
     for(int i = 0; i < 10; i++){//logica, assim como acima, que diz para i ir até 10, imprimir i e depois usar a mesma logica com j
         printf("%d| ", i);//imprimindo o array, matriz, sei la de I e J 
         for(int j = 0; j < 10; j++){
-            printf("%d ", tabuleiro[i][j]); //imprimindo o tabulero inteiro, ele vai imprimir 0 para espaços vazios e 3 para os navios
+            switch (tabuleiro[i][j]) {
+            case 0: 
+                printf("0 "); //awa
+                break;
+            case 3:
+                printf("3 "); //metal na awa
+                break;
+            case 5:
+                printf("5 "); //explosão
+                break;
+            default:
+                printf("%d ", tabuleiro[i][j]); //caso não seja 0, 3 ou 5
+            }
         }
-        printf("\n");//antes de tudo, é determinado que os navios ocupem as posições deles, assim, o resto é impresso 0
+        printf("\n");
     }
     return 0;
 }
